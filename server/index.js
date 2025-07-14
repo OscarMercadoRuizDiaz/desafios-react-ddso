@@ -13,12 +13,12 @@ const PORT = 9000;
 const comparisons = {};
 
 app.post('/comparison', (req, res) => {
-  const { izquierda, derecha, coords } = req.body;
+  const { izquierda, derecha, puntosClick } = req.body;
 
   const ip = req.socket.remoteAddress;
   const date = new Date();
 
-  comparisons[ip] = { izquierda, derecha,  date };
+  comparisons[ip] = { izquierda, derecha, puntosClick, date };
   res.status(201).json({ message: 'OK' });
 });
 
